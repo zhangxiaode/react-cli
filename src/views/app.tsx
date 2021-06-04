@@ -1,3 +1,4 @@
+import { connect } from 'mirrorx';
 import React from 'react';
 import { Button } from 'antd';
 import './app.scss';
@@ -8,8 +9,13 @@ class App extends React.Component {
 
     }
   }
-  componentdidMounted() {
-
+  async componentDidMount() {
+    const props: any = this.props
+    console.log(props)
+    await props.dispatch({
+      type: 'app.incrementAsync'
+    })
+    console.log(props)
   }
   render() {
     return (
@@ -18,4 +24,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(state => state)(App);

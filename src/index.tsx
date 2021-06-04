@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
+import {render} from 'mirrorx'
 import App from '@/views/app';
 import reportWebVitals from './reportWebVitals';
+import './index.scss';
+import Mirror from '@/store/mirror'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const Page = Mirror(App)
+render(
+  <Page />,
   document.getElementById('root')
 );
 
